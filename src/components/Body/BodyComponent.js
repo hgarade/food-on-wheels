@@ -14,7 +14,9 @@ const BodyComponent = () => {
   const searchCoordinates = useSelector((store) => store.search);
   const dispatch = useDispatch();
   useEffect(() => {
-    fetchHomePageData();
+    if (searchCoordinates.latitude !== "") {
+      fetchHomePageData();
+    }
   }, [searchCoordinates]);
 
   const handleTopRatedFilter = () => {

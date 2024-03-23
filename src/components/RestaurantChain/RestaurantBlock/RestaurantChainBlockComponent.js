@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const RestaurantChainBlockComponent = ({ data }) => {
   return (
     <div className="flex flex-wrap gap-4 p-4 m-4 justify-center ">
-      {data.map((restaurant) => (
+      {data?.map((restaurant) => (
         <Link
           key={restaurant?.info?.id}
           to={"/restaurant/" + restaurant?.info?.id}

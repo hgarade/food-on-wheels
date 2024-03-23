@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
 import SignupComponent from "./components/SignUp/SignupComponent";
-import AboutComponent from "./components/About/AboutComponent";
+// import AboutComponent from "./components/About/AboutComponent";
 import CartComponent from "./components/Cart/CartComponent";
 import PageNotFoundComponent from "./components/PageNotFound/PageNotFoundComponent";
 import BodyComponent from "./components/Body/BodyComponent";
@@ -13,6 +13,7 @@ import RestaurantComponent from "./components/Restaurant/RestaurantComponent";
 import { Provider } from "react-redux";
 import appStore from "./store/AppStore";
 
+const AboutComponent = lazy(() => import("./components/About/AboutComponent"));
 const appRoutes = createBrowserRouter([
   {
     path: "/",
@@ -28,7 +29,11 @@ const appRoutes = createBrowserRouter([
       },
       {
         path: "/about-us",
-        element: <AboutComponent />,
+        element: (
+          <Suspense fallback={<h1>Loading...!!!</h1>}>
+            <AboutComponent />
+          </Suspense>
+        ),
       },
       {
         path: "/signup",
