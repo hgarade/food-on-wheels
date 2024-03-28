@@ -58,5 +58,5 @@ Installs all dependencies in the application.
 ## Contact Us
 Fell free to contact me for further suggestion!
 
-Email : harshal.garade30@gmail.com
+Email : harshalgarade17@gmail.com
 
